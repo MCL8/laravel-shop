@@ -21,9 +21,9 @@ class CreateOrdersTable extends Migration
             $table->string('address');
             $table->string('phone');
             $table->string('sum');
-            $table->string('comment');
+            $table->text('comment')->default(null);
             $table->text('order_list');
-            $table->integer('status');
+            $table->integer('status')->default(1);
             $table->timestamps();
 
             $table->foreign('user_id')->references('id')->on('users');

@@ -14,6 +14,7 @@ class ProductsTableSeeder extends Seeder
     {
         DB::table('products')->insert([
             'name'=> 'Смартфон Huawei P20, 128Gb, Black',
+            'vendor_code' => rand(100000, 999999),
             'category_id'=> 1,
             'brand_name'=> 'Huawei',
             'price' => 189900,
@@ -27,6 +28,7 @@ class ProductsTableSeeder extends Seeder
 
         DB::table('products')->insert([
             'name'=> 'Смартфон ZTE Blade A6 Max, 16Gb, Black',
+            'vendor_code' => rand(100000, 999999),
             'category_id'=> 1,
             'brand_name'=> 'ZTE',
             'price' => 35900,
@@ -40,6 +42,7 @@ class ProductsTableSeeder extends Seeder
 
         DB::table('products')->insert([
             'name'=> 'Смартфон Apple iPhone Xr, 128Gb, Black',
+            'vendor_code' => rand(100000, 999999),
             'category_id'=> 1,
             'brand_name'=> 'Apple',
             'price' => 407900,
@@ -52,6 +55,7 @@ class ProductsTableSeeder extends Seeder
 
         DB::table('products')->insert([
             'name'=> 'Смартфон Doogee S70 Lite, 64Gb, Black',
+            'vendor_code' => rand(100000, 999999),
             'category_id'=> 1,
             'brand_name'=> 'Doogee',
             'price' => 119900,
@@ -65,6 +69,7 @@ class ProductsTableSeeder extends Seeder
 
         DB::table('products')->insert([
             'name'=> 'Компьютер HP ProDesk 800 G3 TWR (1NE20EA)',
+            'vendor_code' => rand(100000, 999999),
             'category_id'=> 2,
             'brand_name'=> 'HP',
             'price' => 563900,
@@ -79,6 +84,7 @@ class ProductsTableSeeder extends Seeder
 
         DB::table('products')->insert([
             'name'=> 'Компьютер Dell Inspiron 3670 MT (210-ANZR)',
+            'vendor_code' => rand(100000, 999999),
             'category_id'=> 2,
             'brand_name'=> 'Dell',
             'price' => 291300,
@@ -92,6 +98,7 @@ class ProductsTableSeeder extends Seeder
 
         DB::table('products')->insert([
             'name'=> 'Компьютер HP EliteDesk 800 G3 TWR (1HK28EA)',
+            'vendor_code' => rand(100000, 999999),
             'category_id'=> 2,
             'brand_name'=> 'HP',
             'price' => 372900,
@@ -105,6 +112,7 @@ class ProductsTableSeeder extends Seeder
 
         DB::table('products')->insert([
             'name'=> 'Ноутбук HP ProBook 430 G5 (2UB74EA)',
+            'vendor_code' => rand(100000, 999999),
             'category_id'=> 3,
             'brand_name'=> 'HP',
             'price' => 441700,
@@ -117,6 +125,7 @@ class ProductsTableSeeder extends Seeder
 
         DB::table('products')->insert([
             'name'=> 'Ноутбук ASUS N705UD (90NB0GA1-M02810)',
+            'vendor_code' => rand(100000, 999999),
             'category_id'=> 3,
             'brand_name'=> 'ASUS',
             'price' => 347700,
@@ -130,6 +139,7 @@ class ProductsTableSeeder extends Seeder
 
         DB::table('products')->insert([
             'name'=> 'Ноутбук DELL Inspiron 5370 (5370-5416)',
+            'vendor_code' => rand(100000, 999999),
             'category_id'=> 3,
             'brand_name'=> 'Dell',
             'price' => 234900,
@@ -142,6 +152,7 @@ class ProductsTableSeeder extends Seeder
 
         DB::table('products')->insert([
             'name'=> 'Ноутбук DELL Inspiron 5370 (5370-5416)',
+            'vendor_code' => rand(100000, 999999),
             'category_id'=> 3,
             'brand_name'=> 'Dell',
             'price' => 234900,
@@ -154,6 +165,7 @@ class ProductsTableSeeder extends Seeder
 
         DB::table('products')->insert([
             'name'=> 'Планшет iPad 2018 Apple c дисплеем Retina, 32Gb, Wi-Fi+4G, Space Gray',
+            'vendor_code' => rand(100000, 999999),
             'category_id'=> 4,
             'brand_name'=> 'Apple',
             'price' => 191900,
@@ -166,6 +178,7 @@ class ProductsTableSeeder extends Seeder
 
         DB::table('products')->insert([
             'name'=> 'Планшет Acer Iconia One 10, 16Gb, Wi-Fi+4G, White',
+            'vendor_code' => rand(100000, 999999),
             'category_id'=> 4,
             'brand_name'=> 'Acer',
             'price' => 64900,
@@ -178,6 +191,7 @@ class ProductsTableSeeder extends Seeder
 
         DB::table('products')->insert([
             'name'=> 'Планшет Lenovo Tab 7 TB-7504X, 16Gb, Wi-Fi+4G, Black',
+            'vendor_code' => rand(100000, 999999),
             'category_id'=> 4,
             'brand_name'=> 'Lenovo',
             'price' => 56400,
@@ -190,6 +204,7 @@ class ProductsTableSeeder extends Seeder
 
         DB::table('products')->insert([
             'name'=> 'Телевизор Xiaomi Mi TV 4, 65"',
+            'vendor_code' => rand(100000, 999999),
             'category_id'=> 5,
             'brand_name'=> 'Xiaomi',
             'price' => 64900,
@@ -201,6 +216,7 @@ class ProductsTableSeeder extends Seeder
 
         DB::table('products')->insert([
             'name'=> 'Телевизор Toshiba 39S2750EV',
+            'vendor_code' => rand(100000, 999999),
             'category_id'=> 5,
             'brand_name'=> 'Toshiba',
             'price' => 109900,

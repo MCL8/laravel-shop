@@ -12,7 +12,7 @@
 */
 
 Route::get('/', 'SiteController@index')->name('site.index');
-Route::get('categories/{cat_id}', 'SiteController@index')->name('categories.index');
+Route::get('categories/{cat_id}', 'CategoryController@index')->name('categories.index');
 
 Route::get('products/{id}', 'ProductController@show')->name('products.show');
 
@@ -22,7 +22,20 @@ Auth::routes();
 
 Route::get('/cart', 'CartController@index')->name('cart.index');
 Route::post('/cart', 'CartController@refresh')->name('cart.refresh');
+Route::get('/cart/checkout', 'CartController@checkout')->name('cart.checkout');
+Route::post('/cart/confirm', 'CartController@confirm')->name('cart.confirm');
 
-Route::get('/orders/create', 'OrderController@create')->name('orders.create');
-Route::post('/orders/create', 'OrderController@create')->name('orders.create');
-Route::post('/orders/store', 'OrderController@store')->name('orders.store');
+
+Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function() {
+    Route::group(['middleware' => 'admin'], function() {
+        Route::get('/', function(){
+            return view('admin.index');
+        })->name('admin.index');
+
+        Route::resource('products', 'AdminProductController')->only(['index','create', 'store', 'edit', 'update', 'destroy']);
+
+        Route::resource('categories', 'AdminCategoryController')->only(['index','create', 'store', 'edit', 'update', 'destroy']);
+
+        Route::resource('orders', 'AdminOrderController')->only(['index', 'show', 'edit', 'update', 'destroy']);
+    });
+});

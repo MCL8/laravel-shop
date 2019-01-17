@@ -12,7 +12,7 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-                <a href="{{ route('root.index') }}" class="nav-link">Music Store</a>
+                <a href="{{ route('site.index') }}" class="nav-link">Music Store</a>
             </li>
             <li class="nav-item">
                 <a href="#" class="nav-link">Доставка</a>

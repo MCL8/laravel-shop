@@ -8,7 +8,7 @@
         Заказ №{{ $id }} принят
         <div class="buttons py-4">
             <a class="btn btn-primary" rel="tooltip"
-               href="{{ route('root.index') }}" data-original-title="Вернуться в магазин ">
+               href="{{ route('site.index') }}" data-original-title="Вернуться в магазин ">
                 <i class="ico-cart"></i><span>Вернуться в магазин</span>
             </a>
         </div>

@@ -40,12 +40,11 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
           integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="../CSS/styles.css"/>
-    <link rel="stylesheet" href="{{asset('css/main.css')}}">
-    <link rel="stylesheet" href="{{asset('css/font-awesome.min.css'}}">
-    <link rel="stylesheet" href="{{asset('css/prettyPhoto.css')}}">
-    <link rel="stylesheet" href="{{asset('css/price-range.css')}}">
-    <link rel="stylesheet" href="{{asset('css/responsive.css')}}">
+    <link rel="stylesheet" href="{{ asset('css/main.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/font-awesome.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/prettyPhoto.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/price-range.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/responsive.css') }}">
 
 </head>
 
@@ -67,8 +66,7 @@
         </div>
     </div>
     <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
-    <script src="{{ asset('js/jquery-3.3.1.min.js') }}" defer></script>
+    <script src="{{ asset('js/app.js') }}"></script>
     <script src="{{ asset('js/jquery.cycle2.min.js') }}"></script>
     <script src="{{ asset('js/jquery.cycle2.carousel.min.js') }}"></script>
     <script src="{{ asset('js/bootstrap.min.js') }}"></script>

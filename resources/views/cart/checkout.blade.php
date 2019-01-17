@@ -18,7 +18,7 @@
             </div>
         @endif
 
-            {!! Form::open(['route' => 'orders.store'], ['class' => 'form']) !!}
+            {!! Form::open(['route' => 'cart.confirm'], ['class' => 'form']) !!}
                 <div class="form-group">
                     {!! Form::label('name', 'ФИО', ['class' => 'control-label']) !!}
                     {!! Form::text('name', $name, ['class' => 'form-control input-lg']) !!}
@@ -34,6 +34,10 @@
                 <div class="form-group">
                     {!! Form::label('address', 'Адрес', ['class' => 'control-label']) !!}
                     {!! Form::text('address', null, ['class' => 'form-control input-lg']) !!}
+                </div>
+                <div class="form-group">
+                    {!! Form::label('comment', 'Комментарий к заказу', ['class' => 'control-label']) !!}
+                    {!! Form::textarea('comment', null, ['class' => 'form-control input-lg']) !!}
                 </div>
                 <div class="form-group">
                     {!! Form::hidden('user_id', $user_id) !!}

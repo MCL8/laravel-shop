@@ -5,27 +5,26 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Product;
 use App\Category;
-use Darryldecode\Cart\Facades\CartFacade;
+use Barryvdh\Debugbar\Facade as Debugbar;
+use Gloudemans\Shoppingcart\Facades\Cart;
 
 class SiteController extends Controller
 {
-    public const LIMIT = 10;
+    public const LIMIT = 6;
 
-    public function index($cat_id = "all")
+    public function index()
     {
-        $subcat_name = "Все товары";
+        $products = Product::take(self::LIMIT)->get();
 
-        if ($cat_id == "all") {
-            $products = Product::take(self::LIMIT)->get();
-        } else {
-            $products = Product::where('category_id', $cat_id)->paginate(3);
-        }
+        $recommended_products = Product::where('recommended', 1)->get();
+
+        //Debugbar::info($recommended_products);
 
         $categories = Category::all();
 
-        $cart_content = Cart::getContent();
+        $cart_content = Cart::content();
 
         return view('site.index', compact(
-            'products', 'categories', 'cart_data', 'cart_content', 'subcat_name'));
+            'products', 'recommended_products', 'categories', 'cart_content'));
     }
 }
