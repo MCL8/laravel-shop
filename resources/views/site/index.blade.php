@@ -4,7 +4,7 @@
 
         @include('layouts.sidebar-categories')
 
-        @include('site.partials.products-list')
+        @include('layouts.products-list')
 
 @endsection
 

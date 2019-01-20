@@ -1,6 +1,6 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-primary mb-5">
-    <a href="#" class="navbar-brand">
-        <img src="images/e-shop-logo.png"
+<nav class="navbar navbar-expand-lg navbar-light bg-light mb-4">
+    <a href="{{ route('site.index') }}" class="navbar-brand">
+        <img src="../images/logo.png"
              width="50" height="50" alt="logo">
     </a>
     <button class="navbar-toggler" type="button"
@@ -12,22 +12,19 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-                <a href="{{ route('site.index') }}" class="nav-link">Music Store</a>
+                <a href="{{ route('site.index') }}" class="nav-link">My E-Shop</a>
             </li>
             <li class="nav-item">
-                <a href="#" class="nav-link">Доставка</a>
+                <a href="{{ route('site.delivery') }}" class="nav-link">Доставка</a>
             </li>
             <li class="nav-item">
-                <a href="#" class="nav-link">Оплата</a>
+                <a href="{{ route('site.payment') }}" class="nav-link">Оплата</a>
             </li>
             <li class="nav-item">
-                <a href="#" class="nav-link">О нас</a>
-            </li>
-            <li class="nav-item">
-                <a href="#" class="nav-link">Контакты</a>
+                <a href="{{ route('site.about') }}" class="nav-link">О нас</a>
             </li>
         </ul>
-        <!-- Right Side Of Navbar -->
+
         <ul class="navbar-nav ml-auto">
             <!-- Authentication Links -->
             @guest

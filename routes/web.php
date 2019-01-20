@@ -12,7 +12,11 @@
 */
 
 Route::get('/', 'SiteController@index')->name('site.index');
-Route::get('categories/{cat_id}', 'CategoryController@index')->name('categories.index');
+Route::get('about', 'SiteController@about')->name('site.about');
+Route::get('delivery', 'SiteController@delivery')->name('site.delivery');
+Route::get('payment', 'SiteController@payment')->name('site.payment');
+
+Route::get('category/{cat_id}', 'CategoryController@index')->name('category.index');
 
 Route::get('products/{id}', 'ProductController@show')->name('products.show');
 

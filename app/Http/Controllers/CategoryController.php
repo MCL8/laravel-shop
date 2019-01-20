@@ -9,12 +9,18 @@ use Gloudemans\Shoppingcart\Facades\Cart;
 
 class CategoryController extends Controller
 {
-    public const LIMIT = 6;
+    public const LIMIT = 9;
 
     public function index($cat_id)
     {
-        $products = Product::where('category_id', $cat_id)->paginate(self::LIMIT);
-        $cat_name = Category::findOrFail($cat_id)->name;
+        $products = Product::where('status', 1)->where('category_id', $cat_id)->paginate(self::LIMIT);
+
+        try {
+            $cat_name = Category::findOrFail($cat_id)->name;
+        } catch (ModelNotFoundException $e) {
+            report($e);
+            return redirect()->route('site.index');
+        }
 
         $categories = Category::all();
 

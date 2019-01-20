@@ -1,45 +1,79 @@
-@forelse($products as $product)
+<div class="col-sm-9 padding-right">
+    <div class="features_items">
+        <h2 class="title text-center">Последние товары</h2>
 
-    <div class="row border my-4">
-        <div class="col-4 border-right py-4 align-self-center">
-            <div class="image">
-                <a href="{{ route('products.show', ['id' => $product->id]) }}">
-                    <img style="max-width: 100%" src="../images/{{ $product->image }}" alt="{{ $product->name }}">
-                </a>
-            </div>
-        </div>
-        <div class="col-8 py-2">
-            <div class="h3">
-                <a href="{{ route('products.show', ['id' => $product->id]) }}">{{ $product->name }}</a>
-            </div>
+        @forelse($products as $product)
+            <div class="col-sm-4 float-left">
+                <div class="product-image-wrapper">
+                    <div class="single-products">
+                        <div class="productinfo text-center">
+                            <a href="{{ route('products.show', ['id' => $product->id]) }}">
 
-            <div class="h4">
-                Цена: <span>{{ $product->price }}</span>
-            </div>
+                            @include('layouts/product-image')
 
-            <div class="my-2">
-                {{ $product->short_description }}
-            </div>
-
-            <div class="buttons">
-                <a class="btn btn-primary" rel="tooltip"
-                   href=" {{ route('products.in-cart', ['id' => $product->id]) }}" data-original-title="В корзину ">
-                    <i class="ico-cart"></i><span>В корзину</span>
-                </a>
-            </div>
-
-            @if(!$product->available)
-                <div class="h4 text-danger" >
-                    Нет в наличии
+                            <h2>{{ $product->price }}</h2>
+                            <p>  {{ $product->name }} </p>
+                            </a>
+                            <a href="{{ route('products.in-cart', ['id' => $product->id]) }}"
+                               class="btn btn-outline-success add-to-cart" data-id="{{ $product->id }}"
+                            >
+                                В корзину
+                            </a>
+                        </div>
+                    </div>
                 </div>
-            @endif
+            </div>
+        @empty
+            Товаров не найдено
+        @endforelse
+
+    </div>
+
+
+
+    <div class="recommended_items">
+        <h2 class="title text-center">Рекомендуемые товары</h2>
+
+        <div class="cycle-slideshow"
+             data-cycle-fx=carousel
+             data-cycle-timeout=5000
+             data-cycle-carousel-visible=3
+             data-cycle-carousel-fluid=true
+             data-cycle-slides="div.item"
+             data-cycle-prev="#prev"
+             data-cycle-next="#next"
+        >
+            @foreach($recommended_products as $product)
+                <div class="item">
+                    <div class="product-image-wrapper">
+                        <div class="single-products">
+                            <div class="productinfo text-center">
+                                <a href="{{ route('products.show', ['id' => $product->id]) }}">
+
+                                @include('layouts/product-image')
+
+                                <h2>{{ $product->price }}</h2>
+                                    {{ $product->name }}
+                                </a>
+                                <br/><br/>
+                                <a href="{{ route('products.in-cart', ['id' => $product->id]) }}"
+                                   class="btn btn-outline-success add-to-cart" data-id="{{ $product->id }}"
+                                >
+                                    В корзину
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            @endforeach
         </div>
-    </div>
 
-@empty
-    Товаров не найдено
+        <a class="left recommended-item-control" id="prev" href="#recommended-item-carousel" data-slide="prev">
+            <i class="fa fa-angle-left"></i>
+        </a>
+        <a class="right recommended-item-control" id="next"  href="#recommended-item-carousel" data-slide="next">
+            <i class="fa fa-angle-right"></i>
+        </a>
 
-@endforelse
-    <div>
-        {!! $products->links() !!}
     </div>
+</div>

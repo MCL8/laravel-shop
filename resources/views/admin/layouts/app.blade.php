@@ -49,10 +49,9 @@
 </head>
 
 <body>
-    <div id="app">
         <div class="page-wrapper">
             <div class="container">
-                @include('layouts/header')
+                @include('admin/layouts/header')
                 @include('flash::message')
 
                 @yield('content')
@@ -62,7 +61,6 @@
         <div class="container">
             @include('layouts/footer')
         </div>
-    </div>
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
     <script src="{{ asset('js/jquery.cycle2.min.js') }}"></script>

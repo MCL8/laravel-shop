@@ -9,7 +9,9 @@
             <div class="row">
                 <div class="col-sm-5">
                     <div class="view-product">
-                        <img src="upload/images/products/36.jpg" alt="">
+
+                        @include('layouts/product-image')
+
                     </div>
                 </div>
                 <div class="col-sm-7">
@@ -19,17 +21,31 @@
                         <h2>{{ $product->name }}</h2>
                         <p>Артикул: {{ $product->vendor_code }}</p>
                         <span>
-                                    <span>{{ $product->price }}</span>
-                                    <a href="{{ route('products.in-cart', ['id' => $product->id]) }}" data-id="{{ $product->id }}" class="btn btn-default add-to-cart">
-                                        <i class="fa fa-shopping-cart"></i>В корзину
-                                    </a>
-                                </span>
+                            <span>{{ $product->price }}</span>
+                        </span>
+
                         @if($product->available == 1)
-                            <p><b>Наличие:</b> В наличии</p>
+                            <div class="text-success h5">
+                                В наличии
+                            </div>
                         @else
-                            <p><b>Наличие:</b> Нет в наличии</p>
+                            <div class="text-danger h5">
+                                В наличии
+                            </div>
                         @endif
+
                         <p><b>Производитель:</b> {{ $product->brand_name }}</p>
+
+                        <span>
+                            <a href="{{ route('products.in-cart', ['id' => $product->id]) }}" data-id="{{ $product->id }}"
+                               class="btn btn-success mr-2"
+                            >
+                                В корзину
+                            </a>
+                            <a class="btn btn-light" rel="tooltip" href="{{ url()->previous() }}" data-original-title="В корзину ">
+                                Назад
+                            </a>
+                        </span>
                     </div>
                 </div>
             </div>

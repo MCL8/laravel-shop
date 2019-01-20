@@ -10,15 +10,13 @@ use Gloudemans\Shoppingcart\Facades\Cart;
 
 class SiteController extends Controller
 {
-    public const LIMIT = 6;
+    public const LIMIT = 9;
 
     public function index()
     {
-        $products = Product::take(self::LIMIT)->get();
+        $products = Product::where('status', 1)->take(self::LIMIT)->get();
 
         $recommended_products = Product::where('recommended', 1)->get();
-
-        //Debugbar::info($recommended_products);
 
         $categories = Category::all();
 
@@ -27,4 +25,21 @@ class SiteController extends Controller
         return view('site.index', compact(
             'products', 'recommended_products', 'categories', 'cart_content'));
     }
+
+    public function about()
+    {
+        return view('site.about');
+    }
+
+    public function delivery()
+    {
+        return view('site.delivery');
+    }
+
+    public function payment()
+    {
+        return view('site.payment');
+    }
+
+
 }

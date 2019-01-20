@@ -63,7 +63,19 @@ class AdminProductController extends Controller
 
     public function update(ProductStoreRequest $request, Product $product)
     {
-        $product->update($request->input());
+        $data = $request->input();
+
+        if (!isset($data['available'])) {
+            $data['available'] = 0;
+        }
+        if (!isset($data['recommended'])) {
+            $data['recommended'] = 0;
+        }
+        if (!isset($data['status'])) {
+            $data['status'] = 0;
+        }
+
+        $product->update($data);
 
         $this->fileUpload($request, $product->id);
 
@@ -97,7 +109,7 @@ class AdminProductController extends Controller
         if ($request->hasFile('image')) {
             $image = $request->file('image');
             $name = $id . '.jpg';
-            $destinationPath = public_path('/images/products');
+            $destinationPath = public_path('upload/images/products');
             $image->move($destinationPath, $name);
 
             return true;

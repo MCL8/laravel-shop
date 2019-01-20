@@ -1,31 +1,14 @@
 <footer id="footer">
-    <div class="row mt-5 border-top">
-        <div class="col-6 h5">
-            <ul class="nav flex-column">
-                <li>
-                    <a class="nav-link" href="#">Адреса и телефоны</a>
-                </li>
-                <li>
-                    <a class="nav-link" href="#">Как сделать заказ</a>
-                </li>
-                <li>
-                    <a class="nav-link" href="#">Доставка</a>
-                </li>
-                <li>
-                    <a class="nav-link" href="#">Оплата</a>
-                </li>
-                <li>
-                    <a class="nav-link" href="#">Гарантия</a>
-                </li>
-                <li>
-                    <a class="nav-link" href="#">О компании</a>
-                </li>
-            </ul>
+    <div class="row mt-5 pt-4 pb-2">
+        <div class="col-12 text-center">
+            <a href="{{ route('site.index') }}">
+                <div class="h3">My E-Shop</div>
+            </a>
         </div>
-        <div class="col-6">
-            <div class="bx-socialfooter">
-                <div class="h4">МЫ В СОЦ. СЕТЯХ</div>
-            </div>
+    </div>
+    <div class="row text-center">
+        <div class="col-12">
+            <p>© My E-Shop, 2019</p>
         </div>
     </div>
 </footer>

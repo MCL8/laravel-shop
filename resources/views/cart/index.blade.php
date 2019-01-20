@@ -42,6 +42,8 @@
             {!! Form::submit('Пересчитать', ['class' => 'btn btn-secondary'] ) !!}
             {!! Form::close() !!}
 
+            <br>
+
             <a href="{{ route('cart.checkout') }}" class="'btn btn-primary btn-lg mt-3">Оформить заказ</a>
         @else
             <h3>Корзина пуста</h3>

@@ -49,22 +49,20 @@
 </head>
 
 <body>
-    <div id="app">
         <div class="page-wrapper">
             <div class="container">
                 @include('layouts/navbar')
+                @include('layouts/header')
             </div>
             <div class="container">
-                @include('layouts/header')
                 <div class="row">
                     @yield('content')
                 </div>
             </div>
         </div>
-        <div class="container">
-            @include('layouts/footer')
-        </div>
-    </div>
+
+        @include('layouts/footer')
+
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
     <script src="{{ asset('js/jquery.cycle2.min.js') }}"></script>
