@@ -13,6 +13,9 @@ use Barryvdh\Debugbar\Facade as Debugbar;
 
 class AdminProductController extends Controller
 {
+    /**
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function index()
     {
         $products = DB::table('products')
@@ -25,6 +28,9 @@ class AdminProductController extends Controller
         return view('admin.products.index', compact('products', 'categories'));
     }
 
+    /**
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function create()
     {
         $categories_array = Category::getArrayList();
@@ -32,6 +38,10 @@ class AdminProductController extends Controller
         return view('admin.products.create', compact('categories_array'));
     }
 
+    /**
+     * @param ProductStoreRequest $request
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function store(ProductStoreRequest $request)
     {
         $data = $request->input();
@@ -45,6 +55,10 @@ class AdminProductController extends Controller
 
     }
 
+    /**
+     * @param $id
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\Http\RedirectResponse|\Illuminate\View\View
+     */
     public function edit($id)
     {
         try {
@@ -61,6 +75,11 @@ class AdminProductController extends Controller
         return view('admin.products.edit', compact('categories_array', 'product', 'image'));
     }
 
+    /**
+     * @param ProductStoreRequest $request
+     * @param Product $product
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function update(ProductStoreRequest $request, Product $product)
     {
         $data = $request->input();
@@ -84,6 +103,10 @@ class AdminProductController extends Controller
             ->with('message', 'Информация о товаре обновлена');
     }
 
+    /**
+     * @param $id
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function destroy($id)
     {
         try {
@@ -105,6 +128,11 @@ class AdminProductController extends Controller
             ->with('message', 'Товар удален');
     }
 
+    /**
+     * @param Request $request
+     * @param $id
+     * @return bool
+     */
     private function fileUpload(Request $request, $id) {
         if ($request->hasFile('image')) {
             $image = $request->file('image');

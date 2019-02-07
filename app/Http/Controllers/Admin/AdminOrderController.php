@@ -10,6 +10,9 @@ use Barryvdh\Debugbar\Facade as Debugbar;
 
 class AdminOrderController extends Controller
 {
+    /**
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function index()
     {
         $orders = Order::all();
@@ -18,6 +21,10 @@ class AdminOrderController extends Controller
         return view('admin.orders.index', compact('orders', 'status_list'));
     }
 
+    /**
+     * @param $id
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\Http\RedirectResponse|\Illuminate\View\View
+     */
     public function show($id)
     {
         try {
@@ -35,6 +42,10 @@ class AdminOrderController extends Controller
 
     }
 
+    /**
+     * @param $id
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\Http\RedirectResponse|\Illuminate\View\View
+     */
     public function edit($id)
     {
         try {
@@ -49,6 +60,11 @@ class AdminOrderController extends Controller
         return view('admin.orders.edit', compact('order', 'status_list'));
     }
 
+    /**
+     * @param OrderStoreRequest $request
+     * @param Order $order
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function update(OrderStoreRequest $request, Order $order)
     {
         $order->update($request->input());
@@ -58,6 +74,10 @@ class AdminOrderController extends Controller
             ->with('message', 'Информация о заказе обновлена');
     }
 
+    /**
+     * @param $id
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function destroy($id)
     {
         try {

@@ -13,6 +13,9 @@ class CartController extends Controller
 {
     private $id;
 
+    /**
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function index()
     {
         $cart_content = Cart::content();
@@ -21,6 +24,10 @@ class CartController extends Controller
         return view('cart.index', compact('cart_content', 'subtotal'));
     }
 
+    /**
+     * @param Request $request
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function refresh(Request $request)
     {
         foreach ($request->post() as $key => $value) {
@@ -43,6 +50,9 @@ class CartController extends Controller
         return redirect()->route('cart.index');
     }
 
+    /**
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\Http\RedirectResponse|\Illuminate\View\View
+     */
     public function checkout()
     {
         if (Cart::content()->count() == 0) {
@@ -63,6 +73,10 @@ class CartController extends Controller
             'user_id', 'name', 'email'));
     }
 
+    /**
+     * @param OrderStoreRequest $request
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\Http\RedirectResponse|\Illuminate\View\View
+     */
     public function confirm(OrderStoreRequest $request)
     {
         if (!Auth::check()) {
@@ -91,6 +105,9 @@ class CartController extends Controller
         return view('cart.confirm', compact('id'));
     }
 
+    /**
+     * @return mixed
+     */
     private function getRowId()
     {
         $items = Cart::search(function ($cartItem, $rowId){

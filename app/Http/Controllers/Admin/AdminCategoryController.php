@@ -11,6 +11,9 @@ use Illuminate\View\View;
 
 class AdminCategoryController extends Controller
 {
+    /**
+     * @return \Illuminate\Contracts\View\Factory|View
+     */
     public function index()
     {
         $categories = Category::all();
@@ -18,11 +21,18 @@ class AdminCategoryController extends Controller
         return view('admin.categories.index', compact('categories'));
     }
 
+    /**
+     * @return \Illuminate\Contracts\View\Factory|View
+     */
     public function create()
     {
         return view('admin.categories.create');
     }
 
+    /**
+     * @param CategoryStoreRequest $request
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function store(CategoryStoreRequest $request)
     {
         $data = $request->input();
@@ -33,6 +43,10 @@ class AdminCategoryController extends Controller
             ->with('message', 'Категория создана');
     }
 
+    /**
+     * @param $id
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\Http\RedirectResponse|View
+     */
     public function edit($id)
     {
         try {
@@ -45,6 +59,11 @@ class AdminCategoryController extends Controller
         return view('admin.categories.edit', compact('category'));
     }
 
+    /**
+     * @param CategoryStoreRequest $request
+     * @param Category $category
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function update(CategoryStoreRequest $request, Category $category)
     {
         $category->update($request->input());
@@ -54,6 +73,10 @@ class AdminCategoryController extends Controller
             ->with('message', 'Информация о категории обновлена');
     }
 
+    /**
+     * @param $id
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function destroy($id)
     {
         try {

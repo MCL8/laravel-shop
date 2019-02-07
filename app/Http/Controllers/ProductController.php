@@ -10,6 +10,10 @@ use Illuminate\Database\Eloquent\ModelNotFoundException;
 
 class ProductController extends Controller
 {
+    /**
+     * @param $id
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\Http\RedirectResponse|\Illuminate\View\View
+     */
     public function show($id)
     {
         try {
@@ -22,6 +26,11 @@ class ProductController extends Controller
         }
     }
 
+    /**
+     * @param $id
+     * @param int $count
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function addToCart($id, $count = 1)
     {
         $product = Product::select('name', 'price')->where('id', $id)->get()->toArray()[0];

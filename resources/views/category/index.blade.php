@@ -13,15 +13,14 @@
                     <div class="product-image-wrapper">
                         <div class="single-products">
                             <div class="productinfo text-center">
+                                <a href="{{ route('products.show', ['id' => $product->id]) }}">
+                                    @include('layouts/product-image')
 
-                                @include('layouts/product-image')
-
-                                <h2>{{ $product->price }}</h2>
-                                <p>
-                                    <a href="{{ route('products.show', ['id' => $product->id]) }}">
-                                        {{ $product->name }}
-                                    </a>
-                                </p>
+                                    <h2>{{ $product->price }}</h2>
+                                    <p>
+                                            {{ $product->name }}
+                                    </p>
+                                </a>
                                 <a href="{{ route('products.in-cart', ['id' => $product->id]) }}"
                                    class="btn btn-outline-success add-to-cart"
                                    data-id="{{ $product->id }}"

@@ -11,6 +11,10 @@ class CategoryController extends Controller
 {
     public const LIMIT = 9;
 
+    /**
+     * @param $cat_id
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\Http\RedirectResponse|\Illuminate\View\View
+     */
     public function index($cat_id)
     {
         $products = Product::where('status', 1)->where('category_id', $cat_id)->paginate(self::LIMIT);
